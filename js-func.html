@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- PERTAMA -->
+    <h2>JavaScript Function</h2>
+    <p>This example calls a function which performs 
+        a calculation, and returns the result</p>
+    <p id="demo"></p>
+
+    <script>
+        function myF(p1,p2){
+            return p1 * p2
+        }
+        document.getElementById("demo").innerHTML = myF(5,3);
+    </script>
+
+    <!-- KEDUA -->
+    <h2>Variable dan Tipe Data JavaScript</h2>
+    <p id="output1"></p>
+    <p id="output2"></p>
+    <p id="output3"></p>
+    
+    <script>
+        // Deklarasi variable
+        let numVar = 42; //Tipe data number
+        let strVar = "Bye, World!"; // Tipe data string
+        let bolVar = true; // Tipe data boolean
+
+        // Menampilkan nilai variable
+        document.getElementById("output1").innerHTML = "Nilai dr numVar: " + numVar;
+        document.getElementById("output2").innerHTML = "Nilai dr strVar: " + strVar;
+        document.getElementById("output3").innerHTML = "Nilai dr bolVar: " + bolVar;
+        document.getElementById("output1").innerHTML = "Nilai dr numVar: " + strVar;
+        
+    </script>
+
+    <!-- KETIGA -->
+    <h2>Contoh</h2>
+    <p id="arit"></p>
+    <p id="comp"></p>
+    <p id="logc"></p>
+    <p id="asgn"></p>
+
+    <script>
+        // Operator Aritmatika
+        let a = 10;
+        let b = 5;
+        let arResult = `
+            Add = ${a+b} <br>
+            Sub = ${a-b} <br>
+            Mul = ${a*b} <br>
+            Div = ${a/b} <br>
+            Mod = ${a%b} <br>
+            Exp = ${a**b} <br>
+            Inc = ${++a} <br>
+            Dec = ${--b}
+        `;
+        document.getElementById("arit").innerHTML = "Contoh Operator: <br>" + arResult
+
+        // Operator Perbandingan
+        let x=10;
+        let y=5;
+        let compResult = `
+            Equal: ${x==y} <br>
+            Not equal: ${x!=y} <br>
+            Strict equal: ${x===y} <br>
+            Greater than: ${x > y} <br>
+            Less than: ${x<y} <br>
+            Greater than or equal: ${x >= y} <br>
+            Less than or equal: ${x<=y} <br>
+        `;
+        document.getElementById("comp").innerHTML = "Contoh Perbandingan: <br>" + compResult
+
+        // Operator Logika
+        let p=true;
+        let q=false;
+        let logicResult = `
+            AND: ${p && q} <br>
+            OR: ${p || q} <br>
+            NOT: ${!p} <br>
+        `;
+        document.getElementById("logc").innerHTML = "Contoh Logikal: <br>" + logicResult
+
+        // Operator Assignment
+        let m=10;
+        m += 5; 
+        m -= 3;
+        m *= 2;
+        m /= 4;
+        m %= 3;
+        let asgnResult = `Final value of m: ${m}`;
+        document.getElementById("asgn").innerHTML = "Contoh Assignment: <br>" + asgnResult
+
+    </script>
+
+    <!-- KEEMPAT -->
+    <h2>IPK</h2>
+    <label for="ipk">Masukkan IPK Mahasiswa</label>
+    <input type="number" id="ipk" step="0.01" min="0" max = "4">
+    <button onclick="pred()">Tentukan Grade</button>
+    <p id="hsl"></p>
+    <script>
+        function pred(){
+            let ipk = parseFloat(document.getElementById("ipk").value);
+            let grade;
+            grade = (ipk>3.5 ? 'cumlaude' : (ipk>=3 ? 'baik' : 'cukup'))
+            document.getElementById("hsl").innerHTML = "Grade:" + grade;
+
+            for (let i=0; i<5; i++) {
+                console.log(i);
+            }
+        }   
+
+    </script>
+
+    <!-- KELIMA -->
+    <script>
+        let numbers = [];
+        for (let i = 0; i < 10000; i++) {
+            numbers.push(Math.floor(Math.random() * 100) + 1);}
+        
+        console.log("Array of random numbers:", numbers);
+
+        // Initialize variables for total, min, and max
+        let total = 0;
+        let min = numbers[0];
+        let max = numbers[0];
+
+        // Calculate total, min, and max
+        for (i=0; i < numbers.length; i++) {
+            total += numbers[i];
+            if(numbers[i]<min){
+                min=numbers[i]
+            }
+            if(numbers[i]>max){
+                max=numbers[i]
+            }
+        }
+
+        // Calculate the average
+        let average = total / numbers.length;
+
+        // Output the results
+        console.log("Total:", total);
+        console.log("Average:", average);
+        console.log("Minimum:", min);
+        console.log("Maximum:", max);
+    </script>
+
+    <!-- KELIMA TAPI KEDUANYA, GANTI VARIABEL YG UDH ADA DI SCRIPT SBLMNYA, GBLH SM -->
+    <script>
+        function generateRandomArray(length, max) {
+            let array = [];
+            for (let i = 0; i < length; i++) {
+                array.push(Math.floor(Math.random() * max) + 1);
+            }
+            return array;
+        }
+
+        // Fungsi untuk menghitung total
+        function calculateTotal(array) {
+            let totalz = 0;
+            for (let i = 0; i < array.length; i++) {
+                totalz += array[i];
+            }
+            return totalz;
+        }
+
+        // Fungsi untuk menghitung rata-rata
+        function calculateAverage(array) {
+            let totalz = calculateTotal(array);
+            return totalz / array.length;
+        }
+
+        // Fungsi untuk menemukan nilai minimum
+        function findMin(array) {
+            let minz = array[0];
+            for (let i = 1; i < array.length; i++) {
+                if (array[i] < minz) {
+                    minz = array[i];
+                }
+            }
+            return minz;
+        }
+
+        // Fungsi untuk menemukan nilai maksimum
+        function findMax(array) {
+            let maxz = array[0];
+            for (let i = 1; i < array.length; i++) {
+                if (array[i] > maxz) {
+                    maxz = array[i];
+                }
+            }
+            return maxz;
+        }
+
+        // Menggunakan fungsi-fungsi di atas
+        let numbers2 = generateRandomArray(10, 100);
+        console.log("Array of random numbers:", numbers2);
+
+        let totalz = calculateTotal(numbers2);
+        let averagez = calculateAverage(numbers2);
+        let minz = findMin(numbers2);
+        let maxz = findMax(numbers2);
+
+        console.log("Total:", totalz);
+        console.log("Average:", averagez);
+        console.log("Minimum:", minz);
+        console.log("Maximum:", maxz);
+    </script>
+    
+</body>
+</html>
